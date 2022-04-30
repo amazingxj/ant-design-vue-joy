@@ -40,7 +40,7 @@
     &:focus,
     &:active {
       .button-color(@color; @background; @border);
-
+      opacity: @btn-disable-opacity;
       text-shadow: none;
       box-shadow: none;
     }
@@ -53,7 +53,22 @@
   text-shadow: @btn-text-shadow;
   box-shadow: @btn-primary-shadow;
 
-  &:hover,
+  &:hover {
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
+    & when (not (@theme = dark) and not (@theme = variable)) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
+    & when (@theme = variable) {
+      .button-color(@color; @backgroundHover; @backgroundHover);
+    }
+  }
+
   &:focus {
     & when (@theme = dark) {
       .button-color(
@@ -62,7 +77,7 @@
     }
     & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+        @color; @background; @background
       );
     }
     & when (@theme = variable) {
@@ -86,7 +101,7 @@
     }
   }
 
-  .button-disabled();
+  .button-disabled(@color; @background; @background);
 }
 
 .button-variant-other(@color; @background; @border) {
@@ -261,6 +276,10 @@
     outline: 0;
   }
 
+  &:not([disabled], .ant-btn-link):focus {
+    box-shadow: @btn-focus-shadow;
+  }
+
   &:not([disabled]):hover {
     text-decoration: none;
   }
@@ -320,9 +339,26 @@
 }
 // danger default button style
 .btn-danger-default() {
-  .button-color(@error-color, @btn-default-bg, @error-color);
+  .button-color(@revers-color, @btn-default-bg, @btn-danger-border);
 
-  &:hover,
+  &:hover {
+    & when (@theme = dark) {
+      .button-color(
+        ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
+          `
+      );
+    }
+    & when (not (@theme = dark) and not (@theme = variable)) {
+      .button-color(
+        ~`colorPalette('@{revers-color}', 7) `; @btn-default-bg; ~`colorPalette('@{revers-color}', 7)
+          `
+      );
+    }
+    & when (@theme = variable) {
+      .button-color(@error-color-hover, @btn-default-bg, @error-color-hover);
+    }
+  }
+
   &:focus {
     & when (@theme = dark) {
       .button-color(
@@ -332,8 +368,8 @@
     }
     & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
-        ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
-          `
+        @revers-color; @btn-default-bg; @revers-color
+
       );
     }
     & when (@theme = variable) {
@@ -350,7 +386,7 @@
     }
     & when (not (@theme = dark) and not (@theme = variable)) {
       .button-color(
-        ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
+        ~`colorPalette('@{revers-color}', 7) `; @btn-default-bg; ~`colorPalette('@{revers-color}', 7)
           `
       );
     }
@@ -411,17 +447,20 @@
 .btn-text() {
   .button-variant-other(@text-color, transparent, transparent);
   box-shadow: none;
+  color: @primary-color;
 
-  &:hover,
+  &:hover {
+    color: ~`colorPalette('@{primary-color}', 7) `; // @text-color;
+    border-color: transparent;
+  }
+
   &:focus {
-    color: @text-color;
-    background: @btn-text-hover-bg;
+    color: @primary-color;
     border-color: transparent;
   }
 
   &:active {
-    color: @text-color;
-    background: fadein(@btn-text-hover-bg, 1%);
+    color: @primary-color;
     border-color: transparent;
   }
 
@@ -437,10 +476,10 @@
       .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
     }
     & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
+      .button-color(~`colorPalette('@{error-color}', 5) `; null; transparent);
     }
     & when (@theme = variable) {
-      .button-color(@error-color-hover; @btn-text-hover-bg; transparent);
+      .button-color(@error-color-hover; null; transparent);
     }
   }
 

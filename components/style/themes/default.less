@@ -43,14 +43,17 @@
 @warning-color-deprecated-border: color(~`colorPalette('@{warning-color}', 3) `);
 
 // >>> Error
-@error-color: @red-5;
+@error-color: @red-6;
 @error-color-hover: color(~`colorPalette('@{error-color}', 5) `);
 @error-color-active: color(~`colorPalette('@{error-color}', 7) `);
 @error-color-outline: fade(@error-color, @outline-fade);
 @error-color-deprecated-bg: color(~`colorPalette('@{error-color}', 1) `);
 @error-color-deprecated-border: color(~`colorPalette('@{error-color}', 3) `);
 
-@highlight-color: @red-5;
+// >>> revers
+@revers-color: @gray-6;
+
+@highlight-color: @red-6;
 @normal-color: #d9d9d9;
 @white: #fff;
 @black: #000;
@@ -105,7 +108,7 @@
 @heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
-@border-radius-base: 2px;
+@border-radius-base: 0;
 @border-radius-sm: @border-radius-base;
 
 // vertical paddings
@@ -127,8 +130,8 @@
 @margin-xss: 4px; // more small
 
 // height rules
-@height-base: 32px;
-@height-lg: 40px;
+@height-base: 36px;
+@height-lg: 48px;
 @height-sm: 24px;
 
 // The background colors for active and hover states for things like
@@ -210,6 +213,7 @@
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+@btn-focus-shadow: 0 0 4px 0 rgba(28, 105, 212);
 
 @btn-primary-color: #fff;
 @btn-primary-bg: @primary-color;
@@ -219,12 +223,13 @@
 @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
-@btn-danger-bg: @error-color;
-@btn-danger-border: @error-color;
+@btn-danger-bg: @revers-color;
+@btn-danger-border: @revers-color;
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
 @btn-disable-border: @border-color-base;
+@btn-disable-opacity: 0.6;
 
 @btn-default-ghost-color: @component-background;
 @btn-default-ghost-bg: transparent;

@@ -19,6 +19,9 @@ To mark a button as disabled, add the `disabled` property to the `Button`.
   <a-button type="primary">Primary</a-button>
   <a-button type="primary" disabled>Primary(disabled)</a-button>
   <br />
+  <a-button type="primary" danger>Primary</a-button>
+  <a-button type="primary" danger disabled>Primary(disabled)</a-button>
+  <br />
   <a-button>Default</a-button>
   <a-button disabled>Default(disabled)</a-button>
   <br />
