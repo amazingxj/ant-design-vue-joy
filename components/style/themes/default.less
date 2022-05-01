@@ -168,7 +168,7 @@
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
+@border-color-base: rgba(187, 187, 187, 0.3); // base border outline a component
 @border-color-split: hsv(0, 0, 94%); // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
@@ -447,7 +447,7 @@
 @input-padding-vertical-lg: (
     ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
   ) - @border-width-base;
-@input-placeholder-color: hsv(0, 0, 75%);
+@input-placeholder-color: #bbbbbb;
 @input-color: @text-color;
 @input-icon-color: @input-color;
 @input-border-color: @border-color-base;
@@ -458,12 +458,12 @@
 @input-number-handler-bg: @component-background;
 @input-number-handler-border-color: @border-color-base;
 @input-addon-bg: @background-color-light;
-@input-hover-border-color: @primary-5;
+@input-hover-border-color: rgba(255, 255, 255, 0); // 透明边框
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
 @input-icon-hover-color: fade(@black, 85%);
 @input-disabled-color: @disabled-color;
-
+@input-hover-shaodow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15); // 输入框hover时的阴影
 // Mentions
 // ---
 @mentions-dropdown-bg: @component-background;

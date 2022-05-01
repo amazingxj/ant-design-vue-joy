@@ -38,6 +38,7 @@
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
   border-right-width: @border-width-base !important;
+  box-shadow: @input-hover-shaodow;
 }
 
 .disabled() {
@@ -50,6 +51,7 @@
 
   &:hover {
     .hover(@input-border-color);
+    box-shadow: none;
   }
 }
 
@@ -69,10 +71,6 @@
   border-radius: @border-radius-base;
   transition: all 0.3s;
   .placeholder(); // Reset placeholder
-
-  &:hover {
-    .hover();
-  }
 
   &:focus,
   &-focused {

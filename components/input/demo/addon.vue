@@ -18,6 +18,7 @@ Using pre & post tabs example.
 <template>
   <a-space direction="vertical">
     <a-input v-model:value="value1" addon-before="Http://" addon-after=".com" />
+    <a-input v-model:value="value1" addon-before="Http://" addon-after=".com" disabled />
     <a-input v-model:value="value2">
       <template #addonBefore>
         <a-select v-model:value="value3" style="width: 90px">

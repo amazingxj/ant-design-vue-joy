@@ -10,13 +10,17 @@
     &:hover,
     &:focus {
       border-color: @input-hover-border-color;
-
+      .active();
       + .@{ant-prefix}-input-group-addon .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
         border-left-color: @input-hover-border-color;
       }
     }
   }
-
+  &:hover {
+    .@{ant-prefix}-input {
+      .hover();
+    }
+  }
   .@{ant-prefix}-input-affix-wrapper {
     border-radius: 0;
   }
