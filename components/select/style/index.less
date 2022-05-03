@@ -281,7 +281,22 @@
       &-selected:not(&-disabled) {
         color: @select-item-selected-color;
         font-weight: @select-item-selected-font-weight;
-        background-color: @select-item-selected-bg;
+        ::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 4px;
+          height: 100%;
+          background-color: @primary-color;
+        }
+
+        &.@{select-prefix-cls}-item-option-multiple {
+          ::before {
+            display: none;
+          }
+          color: @primary-color;
+        }
 
         .@{select-prefix-cls}-item-option-state {
           color: @primary-color;

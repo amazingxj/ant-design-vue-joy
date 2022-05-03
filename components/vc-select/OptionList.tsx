@@ -246,7 +246,7 @@ const OptionList = defineComponent({
       //   memoFlattenOptions,
       //   $slots,
       // } = this as any;
-      const { id, notFoundContent, onPopupScroll } = baseProps;
+      const { id, notFoundContent, onPopupScroll, multiple } = baseProps;
       const { menuItemSelectedIcon, fieldNames, virtual, listHeight, listItemHeight } = props;
 
       const renderOption = slots.option;
@@ -324,6 +324,7 @@ const OptionList = defineComponent({
                     [`${optionPrefixCls}-active`]: activeIndex === itemIndex && !disabled,
                     [`${optionPrefixCls}-disabled`]: disabled,
                     [`${optionPrefixCls}-selected`]: selected,
+                    [`${optionPrefixCls}-multiple`]: multiple,
                   },
                 );
 
