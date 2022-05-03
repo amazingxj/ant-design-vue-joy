@@ -73,10 +73,9 @@
       }
 
       &-active:not(&-disabled) {
-        &,
+        font-weight: @select-item-selected-font-weight;
         &:hover {
-          font-weight: @select-item-selected-font-weight;
-          background-color: @cascader-item-selected-bg;
+          background-color: @item-hover-bg;
         }
         ::before {
           content: '';
