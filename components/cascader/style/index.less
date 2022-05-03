@@ -41,6 +41,7 @@
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &-item {
+      position: relative;
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
@@ -77,6 +78,22 @@
           font-weight: @select-item-selected-font-weight;
           background-color: @cascader-item-selected-bg;
         }
+        ::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 4px;
+          height: 100%;
+          background-color: @primary-color;
+        }
+      }
+
+      &-multiple {
+        ::before {
+          display: none;
+        }
+        // color: @primary-color;
       }
 
       &-content {

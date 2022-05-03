@@ -109,6 +109,7 @@ export default function Column({
                 [`${menuItemPrefixCls}-active`]: activeValue === value,
                 [`${menuItemPrefixCls}-disabled`]: disabled,
                 [`${menuItemPrefixCls}-loading`]: isLoading,
+                [`${menuItemPrefixCls}-multiple`]: multiple,
               },
             ]}
             style={dropdownMenuColumnStyle.value}
