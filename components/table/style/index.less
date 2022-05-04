@@ -93,6 +93,7 @@
         text-align: left;
         background: @table-header-bg;
         border-bottom: @border-width-base @border-style-base @table-border-color;
+        border-top: @border-width-base @border-style-base @table-border-color;
         transition: background 0.3s ease;
 
         &[colspan]:not([colspan='1']) {
@@ -103,12 +104,28 @@
           position: absolute;
           top: 50%;
           right: 0;
-          width: 1px;
+          width: 0;
           height: 1.6em;
           background-color: @table-header-cell-split-color;
           transform: translateY(-50%);
           transition: background-color 0.3s;
           content: '';
+        }
+        .@{table-prefix-cls}-cell-top-line {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background-color: #fff;
+        }
+        .@{table-prefix-cls}-cell-bottom-line {
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background-color: #fff;
         }
       }
     }

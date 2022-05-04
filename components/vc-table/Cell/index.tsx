@@ -358,6 +358,8 @@ export default defineComponent<CellProps>({
 
       return (
         <Component {...componentProps}>
+          <span class={`${cellPrefixCls}-top-line`}></span>
+          <span class={`${cellPrefixCls}-bottom-line`}></span>
           {appendNode}
           {childNode}
           {slots.dragHandle?.()}
